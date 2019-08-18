@@ -9,7 +9,7 @@ dj-database-url==0.5.0
 Django==2.0.7
 django-antispam==1.0.1
 django-cleanup==3.2.0
-django-datatables-views==0.3
+django-datatables-view==1.18.0
 django-heroku==0.3.1
 django-storages==1.7.1
 django-tastypie==0.14.2
