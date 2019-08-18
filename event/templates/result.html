@@ -1,39 +1,53 @@
 {% load i18n staticfiles %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Result Data Table</title>
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-        var dt_table = $('#datatable').DataTable({
-            searching: true,
-            stripe: true,
-            autoWidth: true,
-            processing: true,
-            serverSide: true,
-            stateSave: true,
-            "ajax": "{% url "event:resultdatatable" %}",
+{% block navbar %}
+    {% include "team/includes/navbar-goback.html" %}
+{% endblock %}
+
+{% block content %}
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <h2 class="section-heading mb-5">
+            <span class="section-heading-upper">Team</span>
+            <span class="section-heading-lower">Roster</span>
+          </h2>
+
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+        <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+            var dt_table = $('#datatable').DataTable({
+                searching: true,
+                stripe: true,
+                autoWidth: true,
+                processing: true,
+                serverSide: true,
+                stateSave: true,
+                "ajax": "{% url "event:resultdatatable" %}",
+            });
         });
-    });
-    </script>
-</head>
-<body>
-    <table id="datatable" class="display compact stripe" style="width:100%">
-        <thead>
-            <th>{% trans "Date" %}</th>
-            <th>{% trans "Event" %}</th>
-            <th>{% trans "Race" %}</th>
-            <th>{% trans "Squad" %}</th>
-            <th>{% trans "Time" %}</th>
-            <th>{% trans "Distance" %}</th>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-</body>
-</html>
+        </script>
+        <table id="datatable" class="display compact stripe" style="width:100%">
+            <thead>
+                <th>{% trans "Date" %}</th>
+                <th>{% trans "Event" %}</th>
+                <th>{% trans "Race" %}</th>
+                <th>{% trans "Squad" %}</th>
+                <th>{% trans "Time" %}</th>
+                <th>{% trans "Distance" %}</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
