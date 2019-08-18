@@ -11,7 +11,7 @@ app_name = 'event'
 
 
 urlpatterns = [
-    path('', ResultView.as_view(), name='result'),
+    path('result/', ResultView.as_view(), name='result'),
     path('list/', EventListView.as_view(), name='list'),
     path('data/', ResultDataTable.as_view(), name='resultdatatable'),
     #path('create/', CreateEventView.as_view(), name='save'),
