@@ -23,25 +23,6 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/business-casual.min.css' %}" rel="stylesheet">
 
-    <!-- Scripts necessary for DataTables -->
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-        var x = document.getElementById("datatable")
-        var dt_table = x.DataTable({
-            searching: true,
-            stripe: true,
-            autoWidth: true,
-            processing: true,
-            serverSide: true,
-            stateSave: true,
-            "ajax": "{% url "event:resultdatatable" %}",
-        });
-    });
-    </script>
-
   </head>
 
   <body>
