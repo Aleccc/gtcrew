@@ -29,7 +29,8 @@
     <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-        var dt_table = $('#datatable').DataTable({
+        var x = document.getElementById("datatable")
+        var dt_table = x.DataTable({
             searching: true,
             stripe: true,
             autoWidth: true,
