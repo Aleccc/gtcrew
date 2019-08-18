@@ -1,0 +1,39 @@
+{% load i18n staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result Data Table</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+        var dt_table = $('#datatable').DataTable({
+            searching: true,
+            stripe: true,
+            autoWidth: true,
+            processing: true,
+            serverSide: true,
+            stateSave: true,
+            "ajax": "{% url "event:resultdatatable" %}",
+        });
+    });
+    </script>
+</head>
+<body>
+    <table id="datatable" class="display compact stripe" style="width:100%">
+        <thead>
+            <th>{% trans "Date" %}</th>
+            <th>{% trans "Event" %}</th>
+            <th>{% trans "Race" %}</th>
+            <th>{% trans "Squad" %}</th>
+            <th>{% trans "Time" %}</th>
+            <th>{% trans "Distance" %}</th>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>
