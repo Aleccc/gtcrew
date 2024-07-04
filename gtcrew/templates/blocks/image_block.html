@@ -8,11 +8,20 @@
     {% endif %}
     {% if self.attribution %}
     <div class="card-img-overlay text-white">
-        <div class="position-absolute bottom-0 end-0 py-3 px-3">
+        <div class="float-right">
             <a tabindex="0" role="button" class="btn btn-sm btn-outline-light rounded-circle opacity-50"
-               data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="left"
-               title="{{ self.image.title }}" data-bs-content="{{ self.attribution }}">
-            <i class="bi bi-info-lg"></i>
+               data-bs-container="body"
+               data-bs-toggle="popover"
+               data-bs-trigger="focus"
+               data-bs-placement="left"
+               data-bs-content="{{ self.attribution }}"
+               data-container="body"
+               data-toggle="popover"
+               data-trigger="focus"
+               data-placement="left"
+               data-content="{{ self.attribution }}"
+               title="{{ self.image.title }}">
+            <i class="fas fa-info-circle"></i>
             </a>
         </div>
     </div>
