@@ -17,7 +17,7 @@ class GenericPage(Page):
         ('post', PostBlock()),
         ('section', BaseStreamBlock()),
         ('html', blocks.RawHTMLBlock()),
-        ('custom', SectionBlock())
+        ('custom', SectionBlock()),
     ], use_json_field=True)
 
     content_panels = Page.content_panels + [
@@ -39,7 +39,8 @@ class FormPage(WagtailCaptchaEmailForm):
     )
     body = StreamField([
         ('post', PostBlock()),
-        ('section', BaseStreamBlock())
+        ('section', BaseStreamBlock()),
+        ('custom', SectionBlock()),
     ], use_json_field=True)
     thank_you_text = RichTextField(blank=True)
 
