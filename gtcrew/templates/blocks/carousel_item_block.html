@@ -1,0 +1,15 @@
+{% load wagtailimages_tags %}
+
+<div class="carousel-item {% if not inactive %}active{% endif %}">
+    {% image self.image fill-1200x500 class="d-block w-100 img-fluid" %}
+    {% if self.label or self.caption %}
+    <div class="carousel-caption text-dark d-none d-md-block" style="background-color: rgba(245, 245, 245, .6);">
+        {% if self.label %}
+        <h5 class="text-uppercase">{{ self.label }}</h5>
+        {% endif %}
+        {% if self.caption %}
+        <p>{{ self.caption }}</p>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>

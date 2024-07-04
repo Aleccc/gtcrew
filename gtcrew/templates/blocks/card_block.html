@@ -1,0 +1,11 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+<div class="card {{ other_classes }}">
+    {% if self.image %}
+        {% image self.image fill-500x500 class="card-img-top img-fluid" %}
+    {% endif %}
+    <div class="card-body">
+        {% if self.header %}<h5 class="card-title">{{ self.header }}</h5>{% endif %}
+        <p class="card-text">{% include_block self.body %}</p>
+    </div>
+</div>

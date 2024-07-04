@@ -1,0 +1,8 @@
+{% load wagtailcore_tags %}
+
+{# TODO: need to change the Id to be unique #}
+<div class="accordion accordion-flush" id="accordionFlush">
+    {% for block in value %}
+        {% include_block block with index=forloop.counter0 parent_accordion="accordionFlush" %}
+    {% endfor %}
+</div>

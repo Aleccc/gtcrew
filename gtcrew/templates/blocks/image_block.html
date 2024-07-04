@@ -1,0 +1,20 @@
+{% load wagtailimages_tags %}
+
+<div class="card">
+    {% if self.image.is_landscape %}
+    {% image self.image fill-1920x1080 class="card-img img-fluid shadow-sm" %}
+    {% else %}
+    {% image self.image fill-640x960 class="card-img img-fluid shadow-sm" %}
+    {% endif %}
+    {% if self.attribution %}
+    <div class="card-img-overlay text-white">
+        <div class="position-absolute bottom-0 end-0 py-3 px-3">
+            <a tabindex="0" role="button" class="btn btn-sm btn-outline-light rounded-circle opacity-50"
+               data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="left"
+               title="{{ self.image.title }}" data-bs-content="{{ self.attribution }}">
+            <i class="bi bi-info-lg"></i>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>

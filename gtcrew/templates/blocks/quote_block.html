@@ -1,0 +1,14 @@
+{% load wagtailimages_tags %}
+
+<div class="card border-primary border-3">
+    <div class="card-body">
+        <figure class="text-end">
+            <blockquote class="blockquote">
+                <p>{{ self.text }}</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+                {{ self.attribute_name }}
+            </figcaption>
+        </figure>
+    </div>
+</div>

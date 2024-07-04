@@ -1,0 +1,7 @@
+{% load wagtailcore_tags %}
+{# CSS was added to set the column count #}
+<div class="card-columns" data-masonry='{"percentPosition": true }'>
+  {% for block in value %}
+    {% include_block block %}
+  {% endfor %}
+</div>

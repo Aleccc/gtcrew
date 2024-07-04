@@ -9,7 +9,7 @@ from wagtail.fields import StreamField, RichTextField
 from wagtail.models import Page
 from wagtailcaptcha.models import WagtailCaptchaEmailForm
 
-from gtcrew.blocks import PostBlock, BaseStreamBlock
+from gtcrew.blocks import PostBlock, BaseStreamBlock, SectionBlock
 
 
 class GenericPage(Page):
@@ -17,6 +17,7 @@ class GenericPage(Page):
         ('post', PostBlock()),
         ('section', BaseStreamBlock()),
         ('html', blocks.RawHTMLBlock()),
+        ('custom', SectionBlock())
     ], use_json_field=True)
 
     content_panels = Page.content_panels + [

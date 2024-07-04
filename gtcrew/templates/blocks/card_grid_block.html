@@ -1,0 +1,9 @@
+{% load wagtailcore_tags %}
+
+<div class="row row-cols-1 row-cols-md-{{ value|length }} rounded p-3 g-4">
+    {% for block in value %}
+    <div class="col">
+        {% include_block block with other_classes="h-100" %}
+    </div>
+    {% endfor %}
+</div>

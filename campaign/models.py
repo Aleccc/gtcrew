@@ -6,7 +6,7 @@ from wagtail.fields import StreamField, RichTextField
 from wagtail.models import Page
 from wagtailautocomplete.edit_handlers import AutocompletePanel
 
-from gtcrew.blocks import PostBlock, BaseStreamBlock
+from gtcrew.blocks import PostBlock, BaseStreamBlock, SectionBlock
 
 
 class Donor(models.Model):
@@ -122,6 +122,7 @@ class DonateIndexPage(Page):
     body = StreamField([
         ('post', PostBlock()),
         ('section', BaseStreamBlock()),
+        ('custom', SectionBlock()),
     ], use_json_field=True)
     featured_section = models.ForeignKey(
         'wagtailcore.Page',
