@@ -31,11 +31,19 @@ background: transparent !important;
     </div>
 </section>
 
-{% for coach in self.coaches.all %}
-{% if coach.person_page.live %}
-{% include "person/includes/coaches.html" with coach=coach %}
+{% if self.coaches.all %}
+<section class="page-section">
+    <div class="container">
+        <div class="card-columns justify-content-center" style="column-count: 2">
+            {% for coach in self.coaches.all %}
+            {% if coach.person_page.live %}
+            {% include "person/includes/coaches.html" with coach=coach %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
 {% endif %}
-{% endfor %}
 
 <section class="page-section cta">
     <div class="container">

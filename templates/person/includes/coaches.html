@@ -1,30 +1,15 @@
 {% load wagtailimages_tags wagtailcore_tags %}
-<section class="page-section">
-    <div class="container">
-        <div class="product-item">
-            <div class="product-item-title d-flex">
-                <div class="bg-faded p-5 d-flex ml-auto rounded">
-                    <h2 class="section-heading mb-0">
-                        <span class="section-heading-upper">
-                            {% if coach.squad.squad %}{{ coach.squad.squad }}'s {% endif %}{{ coach.position.title }}
-                        </span>
-                        <span class="section-heading-lower">
-                            {{ coach.person_page.title }}
-                        </span>
-                    </h2>
-                </div>
-            </div>
-            {% image coach.person_page.specific.image fill-700x700 class="mx-auto d-flex img-fluid rounded mb-3 mb-lg-0" %}
-            <div class="product-item-description d-flex mr-auto">
-                <div class="bg-faded p-5 rounded">
-                    <p class="mb-0">{{ coach.person_page.specific.bio|safe }}</p>
-<!--                    <div class="intro-button mx-auto mt-3">-->
-<!--                        <a class="btn btn-primary btn-block text-dark" href="{% pageurl coach.person_page %}">-->
-<!--                            Go to Page-->
-<!--                        </a>-->
-<!--                    </div>-->
-                </div>
-            </div>
-        </div>
+<div class="card bg-faded">
+    {% image coach.person_page.specific.image fill-543x586 class="card-img-top mx-auto d-flex img-fluid" %}
+    <div class="card-body">
+        <p class="card-title h4">{{ coach.person_page.title }}</p>
+        <p class="card-text h5 text-primary font-weight-bold">
+            {% if coach.squad.squad %}{{ coach.squad.squad }}'s {% endif %}{{ coach.position.title }}
+        </p>
+        {% if coach.person_page.specific.bio %}
+        <p class="card-text text-secondary">
+            {{ coach.person_page.specific.bio|safe }}
+        </p>
+        {% endif %}
     </div>
-</section>
+</div>
