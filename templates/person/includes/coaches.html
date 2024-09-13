@@ -1,13 +1,13 @@
 {% load wagtailimages_tags wagtailcore_tags %}
-<div class="card bg-faded">
+<div class="card bg-dark text-light bg-faded border-warning">
     {% image coach.person_page.specific.image fill-543x586 class="card-img-top mx-auto d-flex img-fluid" %}
     <div class="card-body">
-        <p class="card-title h4">{{ coach.person_page.title }}</p>
+        <p class="card-title h4 text-light">{{ coach.person_page.title }}</p>
         <p class="card-text h5 text-primary font-weight-bold">
             {% if coach.squad.squad %}{{ coach.squad.squad }}'s {% endif %}{{ coach.position.title }}
         </p>
         {% if coach.person_page.specific.bio %}
-        <p class="card-text text-secondary">
+        <p class="card-text">
             {{ coach.person_page.specific.bio|safe }}
         </p>
         {% endif %}
