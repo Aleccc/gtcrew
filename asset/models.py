@@ -1,4 +1,3 @@
-from cuser.middleware import CuserMiddleware
 from django.db import models
 from django.urls import reverse_lazy
 
@@ -40,10 +39,10 @@ class Asset(models.Model):
         return '%s' % (self.name,)
 
     def save(self, *args, **kwargs):
-        user = CuserMiddleware.get_user()
-        if not self.pk:
-            self.created_by = user.profile
-        self.last_modified_by = user.profile
+        # user = CuserMiddleware.get_user()
+        # if not self.pk:
+        #     self.created_by = user.profile
+        # self.last_modified_by = user.profile
         super(Asset, self).save(*args, **kwargs)
 
     @property

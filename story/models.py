@@ -1,5 +1,3 @@
-from cuser.middleware import CuserMiddleware
-from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse_lazy
 from django.utils.text import slugify
@@ -41,10 +39,10 @@ class Story(models.Model):
         return '%s' % (self.title,)
 
     def save(self, *args, **kwargs):
-        user = CuserMiddleware.get_user()
-        if not self.pk:
-            self.created_by = user.profile
-        self.last_modified_by = user.profile
+        # user = CuserMiddleware.get_user()
+        # if not self.pk:
+        #     self.created_by = user.profile
+        # self.last_modified_by = user.profile
         if not self.slug:
             self.slug = slugify(self.title)
         super(Story, self).save(*args, **kwargs)

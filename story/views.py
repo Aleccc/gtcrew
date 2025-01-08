@@ -5,7 +5,6 @@ from django.db.models import F
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
-from actstream import action
 from common.views import PagesListView
 from story.forms import StoryCreateForm, StoryUpdateForm
 from story.models import Story
@@ -36,7 +35,7 @@ class CreateStoryView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('story:list')
 
     def get_success_url(self):
-        action.send(self.request.user.profile, verb='created story', action_object=self.object)
+        # action.send(self.request.user.profile, verb='created story', action_object=self.object)
         return super(CreateStoryView, self).get_success_url()
 
 
@@ -74,7 +73,7 @@ class StoryUpdateView(LoginRequiredMixin, UpdateView):
         return context
 
     def get_success_url(self):
-        action.send(self.request.user.profile, verb='updated story', action_object=self.object)
+        # action.send(self.request.user.profile, verb='updated story', action_object=self.object)
         return super(StoryUpdateView, self).get_success_url()
 
 

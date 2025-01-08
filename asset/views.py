@@ -2,7 +2,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, DeleteView
 
-from actstream import action
 from common.views import PagesListView, RequireProfileExistsUpdateView, RequireProfileExistsMixin
 from .forms import AssetCreateForm, AssetUpdateForm
 from .models import Asset
@@ -24,7 +23,7 @@ class CreateAssetView(LoginRequiredMixin, RequireProfileExistsMixin, CreateView)
     def get_success_url(self):
         if self.object.type == SHELL:
             verb = 'created {}'.format(self.object.get_type_display())
-            action.send(self.request.user.profile, verb=verb, action_object=self.object)
+            # action.send(self.request.user.profile, verb=verb, action_object=self.object)
         return super(CreateAssetView, self).get_success_url()
 
 
@@ -40,9 +39,9 @@ class AssetUpdateView(LoginRequiredMixin, RequireProfileExistsUpdateView):
     success_url = reverse_lazy('asset:list')
 
     def get_success_url(self):
-        if self.object.type == SHELL:
-            verb = 'updated {}'.format(self.object.get_type_display())
-            action.send(self.request.user.profile, verb=verb, action_object=self.object)
+        # if self.object.type == SHELL:
+        #     verb = 'updated {}'.format(self.object.get_type_display())
+        #     action.send(self.request.user.profile, verb=verb, action_object=self.object)
         return super(AssetUpdateView, self).get_success_url()
 
 

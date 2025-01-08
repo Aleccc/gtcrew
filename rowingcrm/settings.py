@@ -93,10 +93,10 @@ INSTALLED_APPS = [
     'storages',
     'captcha',
     'django_cleanup',
-    'cuser',
+    # 'cuser',
     'django_summernote',
     'tempus_dominus',
-    'actstream',
+    # 'actstream',
 
     'allauth',
     'allauth.account',
@@ -111,7 +111,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'cuser.middleware.CuserMiddleware',
+    # 'cuser.middleware.CuserMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
@@ -180,6 +180,8 @@ TIME_ZONE = 'America/New_York'
 USE_I18N = True
 
 USE_TZ = True
+
+FORMS_URLFIELD_ASSUME_HTTPS = True
 
 # Default auto field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
