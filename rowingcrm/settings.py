@@ -74,7 +74,7 @@ INSTALLED_APPS = [
 
     'wagtailcaptcha',
     'wagtailautocomplete',
-    'robots',
+    # 'robots',
     # 'wagalytics',
 
     'taggit',
@@ -208,15 +208,26 @@ if config('USE_S3', default=False, cast=bool):
     }
 
     AWS_LOCATION = 'static'
-    STATICFILES_STORAGE = 'rowingcrm.storage_backends.StaticStorage'
+    STORAGES = {
+        "default": {
+            "BACKEND": "rowingcrm.storage_backends.MediaStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "rowingcrm.storage_backends.StaticStorage",
+        },
+    }
     STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
-    DEFAULT_FILE_STORAGE = 'rowingcrm.storage_backends.MediaStorage'
 
     AWS_DEFAULT_ACL = 'private'
 else:
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
-
+    STORAGES = {
+        "default": {
+            "BACKEND": "django.core.files.storage.FileSystemStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+        },
+    }
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     STATIC_URL = '/static/'
 

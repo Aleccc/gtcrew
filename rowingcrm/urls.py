@@ -35,7 +35,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('activity/', include('actstream.urls')),
     path('django_admin/', admin.site.urls),
-    path('robots.txt', include('robots.urls')),
+    # path('robots.txt', include('robots.urls')),
     re_path(r'', include(wagtail_urls)),
 ]
 
