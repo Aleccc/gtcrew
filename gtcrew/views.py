@@ -11,8 +11,8 @@ def person_page_to_string(value):
 
 class PeopleReportView(PageReportView):
     header_icon = 'users'
-    template_name = 'reports/people_report.html'
-    title = "People list by Term"
+    results_template_name = 'reports/people_report.html'
+    page_title = "People list by Term"
 
     custom_field_preprocess = {
         'coaches.all': {'xlsx': person_page_to_string, 'csv': person_page_to_string},
