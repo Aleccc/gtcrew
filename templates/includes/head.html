@@ -5,8 +5,8 @@
     <meta name="description" content="{% if self.search_description %}{{ self.search_description }}{% else %}{{ self.title }}{% endif %}" />
     <meta name="author" content="Alec">
     {% if settings.gtcrew.Favicon.favicon %}
-    {% image settings.gtcrew.Favicon.favicon fill-16x16 format-png as icon %}
-    <link rel="icon" type="image/png" href="{{ icon.url }}"/>
+    {% image settings.gtcrew.Favicon.favicon format-ico as icon %}
+    <link rel="icon" href="{{ icon.url }}"/>
     {% endif %}
 
     <title>
